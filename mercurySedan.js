@@ -1,9 +1,9 @@
 //this includes the vehicle class as a module
-const VehicleModule = require("./vehicleBaseClass").vehicleBaseClass;
-
+const VehicleModule = require("./vehicleBaseClass");
+let myMerc = new A28("Mercury", "Sedan", "2016", "blue", "20000");
 //TO DO: Code the Car subclass here or in index.js file, i.e. class Car extends Vehicle ...
 
-class A28 extends VehicleModule {
+class A28 extends VehicleModule.Vehicle{
     constructor(make, model, year, color, mileage) {
         super(make, model, year, color, mileage)
         this.maximumPassengers = 5;
@@ -46,11 +46,11 @@ class A28 extends VehicleModule {
     }
 }
 //TO DO: Creating Instances and Testing Them
-let myMerc = new A28("Mercury", "Sedan", "2016", "blue", "20000");
+
 
 
 //Create at least two new instances of the Car class and test them here:
-console.log(myMerc);
-myMerc.loadPassenger(6);
-myMerc.start();
-myMerc.mileage(25000);
+// console.log(myMerc);
+// myMerc.loadPassenger(6);
+// myMerc.start();
+// myMerc.mileage(25000);
