@@ -1,17 +1,15 @@
 //this includes the vehicle class as a module
-const VehicleModule = require("./vehicleBaseClass")
+const VehicleModule = require("./vehicleBaseClass.js")
 
 //this shows how to call from this module...
 let v = new VehicleModule.Vehicle("Mercury", "Sedan", "1965", "color", "mileage");
 console.log(v.make)
 
-let A28 = new VehicleModule.A28_Mercury("A28 Mercury","Sedan","2023","blue","20,000");
-console.log(A28)
 
 //TO DO: Code the Car subclass here or in index.js file, i.e. class Car extends Vehicle ...
 
-class A28_Mercury extends Vehicle {
-    constructor(maximumPassengers, passengers, numberOfWheels, maximumSpeed, fuel, scheduleService) {
+class A28 extends Vehicle {
+    constructor(make, model, year, color, mileage) {
         super(make, model, year, color, mileage)
         this.maximumPassengers = 5;
         this.passengers = 0;
@@ -21,14 +19,36 @@ class A28_Mercury extends Vehicle {
         this.scheduleService = false;
     }
 
-    loadPassenger() {
+    loadPassenger(num) {
+        if (this.passengers <= this.maximumPassengers) {
+            if ((num + this.passengers) <= this.maximumPassengers) {
+                this.passengers = num;
+                return this.passengers;
 
+            
+            } else if (this.passenger > this.maximumPassengers){
+                console.log(this.model + "" + this.make + "has reached capacity.")
+            }
     }
     start() {
-
+        if (this.fuel > 0) {
+        return this.started = true;
+        console.log("car is on");
+    } else {
+        return this.started = false;
+        console.log("empty tank");
+        }
     }
-    scheduleService() {
 
+    Maintenance() {
+        if (this.mileage > 30000) {
+            return this.scheduleService = true;
+            console.log("time to schedule maintenance")
+        }
+        else{
+            return this.scheduleService = false;
+            console.log("no need for servicing")
+        }
     }
 }
 
